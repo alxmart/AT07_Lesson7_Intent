@@ -1,6 +1,8 @@
 package com.luizafmartinez.at07_lesson7_intent
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -25,5 +27,14 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+    fun go2secondActivity(view: View) {
+
+        var intent = Intent(this,SecondActivity::class.java)
+        // ou
+        // startActivity(Intent(this,SecondActivity::class.java))
+        intent.putExtra("name", binding.nameID.text.toString())
+        startActivity(intent)
     }
 }
